@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.form-container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #e1e5e9;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease; /* Aplica a border-color y box-shadow cuando se añaden/quitan clases */
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* Estilos para el foco de los inputs */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Estilos para inputs con error */
+input.error {
+  border-color: #c53030; /* Rojo */
+  box-shadow: 0 0 0 3px rgba(197, 48, 48, 0.1); /* Sombra roja */
+}
+
+/* Estilos para inputs válidos (opcional, pero útil para feedback) */
+input.success {
+  border-color: #2d7d32; /* Verde */
+  box-shadow: 0 0 0 3px rgba(45, 125, 50, 0.1); /* Sombra verde */
+}
+
+.message {
+  margin-top: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  min-height: 20px; /* Mantiene el espacio reservado para evitar saltos de layout */
+  /* El display es controlado por JavaScript (block/none) */
+  opacity: 0; /* Por defecto oculto, pero mantiene el espacio */
+  transition: opacity 0.3s ease; /* Transición suave cuando aparece */
+}
+
+/* Cuando el mensaje debe mostrarse, el JavaScript agregará la clase 'show' */
+/* o simplemente establecerá style.opacity = '1' y style.display = 'block' */
+.message[style*="display: block"] {
+  /* Este selector hace que la opacidad 1 se aplique cuando el JS setea display block */
+  opacity: 1;
+}
+
+.message.error {
+  background: #fee;
+  color: #c53030;
+  border: 1px solid #feb2b2;
+}
+
+.message.success {
+  background: #f0fff4;
+  color: #2d7d32;
+  border: 1px solid #68d391;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    padding: 30px 20px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+}
